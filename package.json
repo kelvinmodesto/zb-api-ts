@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kelvinmodesto/camara-api.git"
+    "url": "git+https://github.com/kelvinmodesto/zb-api-ts.git"
   },
   "author": "Kelvin Modesto",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kelvinmodesto/camara-api/issues"
+    "url": "https://github.com/kelvinmodesto/zb-api-ts/issues"
   },
-  "homepage": "https://github.com/kelvinmodesto/camara-api#readme",
+  "homepage": "https://github.com/kelvinmodesto/zb-api-ts#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
