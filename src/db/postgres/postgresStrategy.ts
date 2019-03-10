@@ -1,8 +1,8 @@
 import sequelize from 'sequelize';
 
-import { Context } from '../base/contextStrategy';
+import { ContextStrategy as Context } from '../base/contextStrategy';
 
-export default class PostgresStrategy extends Context {
+export default class PostgresBStrategy extends Context {
   public connection: any;
   public model: any;
 

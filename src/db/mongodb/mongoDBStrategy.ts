@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import { Context } from '../base/contextStrategy';
+import { ContextStrategy as Context } from '../base/contextStrategy';
 
 export default class MongoStrategy extends Context {
   public connection: any;
