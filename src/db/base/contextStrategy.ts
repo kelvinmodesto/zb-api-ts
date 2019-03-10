@@ -1,6 +1,6 @@
 import { IDb } from './db.interface';
 
-export class Context implements IDb {
+export class ContextStrategy implements IDb {
   public database: any;
   constructor(database: any) {
     this.database = database;
