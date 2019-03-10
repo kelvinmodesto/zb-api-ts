@@ -5,27 +5,27 @@ export class Context implements IDb {
   constructor(database: any) {
     this.database = database;
   }
-  public create(item: any) {
+  public async create(item: any) {
     return this.database.create(item);
   }
 
-  public read(item: any) {
+  public async read(item: any) {
     return this.database.read(item);
   }
 
-  public update(id: number, item: any) {
+  public async update(id: number, item: any) {
     return this.database.update(id, item);
   }
 
-  public delete(id: number) {
+  public async delete(id: number) {
     return this.database.delete(id);
   }
 
-  public isConnected() {
+  public async isConnected() {
     return this.database.isConnected();
   }
 
-  public connect() {
+  public async connect() {
     return this.database.connect();
   }
 }
