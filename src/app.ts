@@ -4,7 +4,7 @@ import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
 import * as logger from 'morgan';
 
-import api from './api';
+import userRouter from './api/userRouter';
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // app.use(express.static(path.join(__dirname, 'public')));
-app.use('/api/v1/', api());
+app.use('/api/v1/users', userRouter());
 
 // catch 404 and forward to error handler
 app.use((req: any, res: any, next: any): any => next(createError(404)));
