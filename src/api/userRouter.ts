@@ -8,3 +8,13 @@ import * as MongoDB from '../db/mongodb/mongoDBStrategy';
 import * as UserController from '../controllers/userController';
 
 // Model list
+import user from '../models/user';
+
+const context = new Context(new MongoDB(MongoDB.connect(), user));
+const usersRouter = () => {
+  const userController = new UserController(Router(), context);
+
+  return userController.router;
+};
+
+export default usersRouter;
