@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 import { ContextStrategy as Context } from '../base/contextStrategy';
 
-export default class MongoStrategy extends Context {
+export default class MongoDBStrategy extends Context {
   public connection: any;
   public model: any;
 
@@ -10,6 +10,9 @@ export default class MongoStrategy extends Context {
     super(connection);
     this.connection = connection;
     this.model = model;
+  }
+  public static connect() {
+
   }
 
   public async create(item: any) {
@@ -29,10 +32,6 @@ export default class MongoStrategy extends Context {
   }
 
   public async isConnected() {
-
-  }
-
-  public async connect() {
 
   }
 }
