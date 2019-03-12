@@ -2,7 +2,10 @@ import sequelize from 'sequelize';
 
 import { ContextStrategy as Context } from '../base/contextStrategy';
 
-export default class MySqlStrategy extends Context {
+export class MySQLStrategy extends Context {
+  public static connect() {
+
+  }
   public connection: any;
   public model: any;
 
@@ -29,10 +32,6 @@ export default class MySqlStrategy extends Context {
   }
 
   public async isConnected() {
-
-  }
-
-  public async connect() {
 
   }
 }
