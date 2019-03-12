@@ -5,16 +5,16 @@ import { ContextStrategy as Context } from '../db/base/contextStrategy';
 import { MongoDBStrategy as MongoDB } from '../db/mongodb/mongoDBStrategy';
 
 // Controller
-import { UserController } from '../controllers/userController';
+import { ProductController } from '../controllers/productController';
 
 // Model list
 import user from '../models/user';
 
 const context = new Context(new MongoDB(MongoDB.connect(), user));
-const usersRouter = () => {
-  const userController = new UserController(Router(), context);
+const productsRouter = () => {
+  const productController = new ProductController(Router(), context);
 
-  return userController.router;
+  return productController.router;
 };
 
-export default usersRouter;
+export default productsRouter;
