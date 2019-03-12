@@ -3,6 +3,7 @@
  */
 import debug from 'debug';
 import http from 'http';
+
 import app from '../app';
 
 /**
@@ -63,10 +64,10 @@ const server = http.createServer(app);
 /**
  * Event listener for HTTP server "listening" event.
  */
-function onListening() {
+function onListening(): void {
   const addr = server.address();
 
-  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${port}`;
   debug(`Listening on ${bind}`);
 }
 
