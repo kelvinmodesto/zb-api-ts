@@ -5,27 +5,27 @@ export class ContextStrategy implements IDb {
   constructor(database: any) {
     this.database = database;
   }
-  public async create(item: any) {
+  public create(item: any = {}) {
     return this.database.create(item);
   }
 
-  public async read(item: any) {
+  public read(item: any = {}) {
     return this.database.read(item);
   }
 
-  public async update(id: number, item: any) {
+  public update(id: number, item: any = {}) {
     return this.database.update(id, item);
   }
 
-  public async delete(id: number) {
+  public delete(id: number) {
     return this.database.delete(id);
   }
 
-  public async isConnected() {
+  public isConnected() {
     return this.database.isConnected();
   }
 
-  public async connect() {
+  public connect() {
     return this.database.connect();
   }
 }
