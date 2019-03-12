@@ -1,15 +1,14 @@
-import * as createError from 'http-errors';
-
-import * as cookieParser from 'cookie-parser';
-import * as express from 'express';
-import * as logger from 'morgan';
+import cookieParser from 'cookie-parser';
+import express from 'express';
+import httpErrors from 'http-errors';
+import morgan from 'morgan';
 
 import productRouter from './api/productRouter';
 import userRouter from './api/userRouter';
 
 const app = express();
 
-app.use(logger('dev'));
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -19,7 +18,7 @@ app.use('/api/v1/products', productRouter());
 app.use('/api/v1/users', userRouter());
 
 // catch 404 and forward to error handler
-app.use((req: any, res: any, next: any): any => next(createError(404)));
+app.use((req: any, res: any, next: any): any => next(httpErrors(404)));
 
 // error handler
 app.use((err: any, req: any, res: any) => {
