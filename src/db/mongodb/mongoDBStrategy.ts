@@ -2,7 +2,13 @@ import mongoose from 'mongoose';
 
 import { ContextStrategy as Context } from '../base/contextStrategy';
 
-export default class MongoDBStrategy extends Context {
+const STR_CONNECTION = 'mongodb://admin:admin@localhost:27017/admin';
+
+export class MongoDBStrategy extends Context {
+  public static connect() {
+    mongoose.connect(STR_CONNECTION, { useNewUrlParser: true });
+    return mongoose.connection;
+  }
   public connection: any;
   public model: any;
 
@@ -11,27 +17,28 @@ export default class MongoDBStrategy extends Context {
     this.connection = connection;
     this.model = model;
   }
-  public static connect() {
 
+  public async create(item: any = {}) {
+    return this.model.create(item);
   }
 
-  public async create(item: any) {
-
+  public async read(item: any = {}) {
+    return this.model.find(item);
   }
 
-  public async read(item: any) {
-
-  }
-
-  public async update(item: any) {
-
+  public async update(id: number, item: any = {}) {
+    return this.model.updateOne({ _id: id }, { $set: item });
   }
 
   public async delete(id: number) {
-
+    return this.model.deleteOne({ _id: id });
   }
 
   public async isConnected() {
-
+    const state: number = this.connection.readyState;
+    if (state === 1) return state;
+    if (state !== 2) return state;
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return this.connection.readyState;
   }
 }
