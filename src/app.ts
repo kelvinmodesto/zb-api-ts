@@ -3,6 +3,7 @@ import express from 'express';
 import httpErrors from 'http-errors';
 import morgan from 'morgan';
 
+import loginRouter from './api/loginRouter';
 import productRouter from './api/productRouter';
 import userRouter from './api/userRouter';
 
@@ -16,6 +17,7 @@ app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/products', productRouter());
 app.use('/api/v1/users', userRouter());
+app.use('/api/v1/login', loginRouter());
 
 // catch 404 and forward to error handler
 app.use((req: any, res: any, next: any): any => next(httpErrors(404)));
