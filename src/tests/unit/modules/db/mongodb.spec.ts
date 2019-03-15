@@ -8,14 +8,17 @@ import { MongoDBStrategy as MongoDB } from '../../../../db/mongodb/mongoDBStrate
 // Models
 import user from '../../../../models/user';
 
-let context = {};
+let context: any = {};
 describe('MongoDB Test Suit', function init() {
   this.beforeAll(async () => {
     context = await new Context(new MongoDB(MongoDB.connect(), user));
   });
 
   it('Check connection', async () => {
-    expect(1).to.be.equal(1);
+    expect(await context.isConnected())
+    .to
+    .be
+    .equal(1);
   });
 
   it('Create item', async () => {
